@@ -1,0 +1,33 @@
+<archetype-descriptor xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
+  name="spigot-archetype">
+  <requiredProperties>
+    <requiredProperty key="mainClass">
+      <defaultValue>MyPlugin</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="pluginName" />
+    <requiredProperty key="pluginAuthor" />
+    <requiredProperty key="pluginDescription" />
+    <requiredProperty key="pluginWebsite">
+      <defaultValue>https://www.spigotmc.org</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="spigotVersion">
+      <defaultValue>1.8.8-R0.1-SNAPSHOT</defaultValue>
+    </requiredProperty>
+  </requiredProperties>
+
+  <fileSets>
+    <fileSet encoding="UTF-8" filtered="true" packaged="true">
+      <directory>src/main/java</directory>
+      <includes>
+        <include>**/*</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8" filtered="true">
+      <directory>src/main/resources</directory>
+      <includes>
+        <include>**/*</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+</archetype-descriptor>

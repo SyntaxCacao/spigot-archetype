@@ -1,0 +1,15 @@
+# .gitignore
+
+test/
+
+# Eclipse
+.settings/
+.classpath
+.project
+
+# Maven
+target/
+
+# macOS
+.DS_STORE
+

@@ -1,0 +1,8 @@
+name: ${pluginName}
+description: ${project.description}
+website: ${project.url}
+
+author: ${pluginAuthor}
+version: ${project.version}
+
+main: ${package}.${mainClass}

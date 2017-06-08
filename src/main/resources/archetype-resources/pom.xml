@@ -1,0 +1,97 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>${groupId}</groupId>
+  <artifactId>${artifactId}</artifactId>
+  <version>${version}</version>
+  <packaging>jar</packaging>
+
+  <name>${pluginName}</name>
+  <description>${pluginDescription}</description>
+  <url>${pluginWebsite}</url>
+
+  <properties>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <repositories>
+    <!-- Spigot -->
+    <repository>
+      <id>spigot-repo</id>
+      <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+    </repository>
+  </repositories>
+
+  <dependencies>
+    <!-- Spigot API -->
+    <dependency>
+      <groupId>org.spigotmc</groupId>
+      <artifactId>spigot-api</artifactId>
+      <version>${spigotVersion}</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- Lombok -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.16.16</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+    <plugins>
+      <!-- maven-javadoc-plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.10.4</version>
+        <executions>
+          <execution>
+            <phase>verify</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <!-- Prevent builds from failing because of uncompleted Javadoc -->
+          <additionalparam>-Xdoclint:none</additionalparam>
+          <links>
+            <link>https://hub.spigotmc.org/javadocs/spigot/</link>
+          </links>
+          <!-- Use delomboked sources to include generated methods as well -->
+          <sourcepath>${basedir}/target/generated-sources/delombok</sourcepath>
+        </configuration>
+      </plugin>
+      <!-- lombok-maven-plugin -->
+      <plugin>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok-maven-plugin</artifactId>
+        <version>1.16.16.0</version>
+        <executions>
+          <execution>
+            <id>delombok</id>
+            <!-- Make it happen before Javadoc generation -->
+            <phase>post-integration-test</phase>
+            <goals>
+              <goal>delombok</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <sourceDirectory>${project.build.sourceDirectory}</sourceDirectory>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

@@ -1,0 +1,34 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>de.skeletoneye.maven</groupId>
+  <artifactId>spigot-archetype</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>Archetype for Spigot plugins</name>
+  <description>Archetype for Spigot plugins</description>
+  <url>https://www.github.com/SkeletonEye/SpigotArchetype</url>
+
+  <developers>
+    <developer>
+      <id>SkeletonEye</id>
+      <name>SkeletonEye</name>
+      <email>skeletoneye@outlook.com</email>
+      <url>https://www.github.com/SkeletonEye</url>
+    </developer>
+  </developers>
+
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>https://www.github.com/SkeletonEye/spigot-archetype/blob/master/LICENSE</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+</project>
