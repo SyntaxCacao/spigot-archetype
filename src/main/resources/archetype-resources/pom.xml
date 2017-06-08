@@ -50,6 +50,33 @@
       </resource>
     </resources>
     <plugins>
+      <!-- maven-dependency-plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <id>copy</id>
+            <phase>package</phase>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <artifactItems>
+            <artifactItem>
+              <groupId>${project.groupId}</groupId>
+              <artifactId>${project.artifactId}</artifactId>
+              <version>${project.version}</version>
+              <type>${project.packaging}</type>
+              <outputDirectory>test-server/plugins</outputDirectory>
+              <destFileName>${project.artifactId}.jar</destFileName>
+            </artifactItem>
+          </artifactItems>
+        </configuration>
+      </plugin>
       <!-- maven-javadoc-plugin -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
